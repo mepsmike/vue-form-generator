@@ -1,4 +1,7 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import {
+	mount,
+	createLocalVue
+} from "@vue/test-utils";
 
 import FieldSelect from "src/fields/core/fieldSelect.vue";
 
@@ -29,11 +32,17 @@ describe("fieldSelect.vue", () => {
 			values: ["London", "Paris", "Rome", "Berlin"],
 			fieldClasses: ["applied-class", "another-class"]
 		};
-		let model = { city: "Paris" };
+		let model = {
+			city: "Paris"
+		};
 		let input;
 
 		before(() => {
-			createField2({ schema, model, disabled: false });
+			createField2({
+				schema,
+				model,
+				disabled: false
+			});
 			input = wrapper.find("select");
 		});
 
@@ -131,20 +140,45 @@ describe("fieldSelect.vue", () => {
 			type: "select",
 			label: "Cities",
 			model: "city",
-			values: [
-				{ id: 1, name: "London" },
-				{ id: 2, name: "Paris" },
-				{ id: 3, name: "Rome" },
-				{ id: 4, name: "Berlin" },
-				{ id: 5, name: "Budapest", group: "HUN" },
-				{ id: 6, name: "Paks", group: "HUN" }
+			values: [{
+					id: 1,
+					name: "London"
+				},
+				{
+					id: 2,
+					name: "Paris"
+				},
+				{
+					id: 3,
+					name: "Rome"
+				},
+				{
+					id: 4,
+					name: "Berlin"
+				},
+				{
+					id: 5,
+					name: "Budapest",
+					group: "HUN"
+				},
+				{
+					id: 6,
+					name: "Paks",
+					group: "HUN"
+				}
 			]
 		};
-		let model = { city: 2 };
+		let model = {
+			city: 2
+		};
 		let input;
 
 		before(() => {
-			createField2({ schema, model, disabled: false });
+			createField2({
+				schema,
+				model,
+				disabled: false
+			});
 			input = wrapper.find("select");
 			wrapper.update();
 		});
@@ -202,20 +236,37 @@ describe("fieldSelect.vue", () => {
 			label: "Cities",
 			model: "city",
 			values() {
-				return [
-					{ id: 1, name: "London" },
-					{ id: 2, name: "Paris" },
-					{ id: 3, name: "Rome" },
-					{ id: 4, name: "Berlin" }
+				return [{
+						id: 1,
+						name: "London"
+					},
+					{
+						id: 2,
+						name: "Paris"
+					},
+					{
+						id: 3,
+						name: "Rome"
+					},
+					{
+						id: 4,
+						name: "Berlin"
+					}
 				];
 			},
 			fieldClasses: ["applied-class", "another-class"]
 		};
-		let model = { city: 2 };
+		let model = {
+			city: 2
+		};
 		let input;
 
 		before(() => {
-			createField2({ schema, model, disabled: false });
+			createField2({
+				schema,
+				model,
+				disabled: false
+			});
 			input = wrapper.find("select");
 		});
 
@@ -252,11 +303,22 @@ describe("fieldSelect.vue", () => {
 				inputName: "input_name",
 				fieldClasses: ["applied-class", "another-class"],
 				values() {
-					return [
-						{ id: 1, name: "London" },
-						{ id: 2, name: "Paris" },
-						{ id: 3, name: "Rome" },
-						{ id: 4, name: "Berlin" }
+					return [{
+							id: 1,
+							name: "London"
+						},
+						{
+							id: 2,
+							name: "Paris"
+						},
+						{
+							id: 3,
+							name: "Rome"
+						},
+						{
+							id: 4,
+							name: "Berlin"
+						}
 					];
 				},
 				attributes: {
@@ -272,7 +334,10 @@ describe("fieldSelect.vue", () => {
 			let input;
 
 			before(() => {
-				createField2({ schema, model });
+				createField2({
+					schema,
+					model
+				});
 				input = wrapper.find("select");
 			});
 
@@ -289,11 +354,22 @@ describe("fieldSelect.vue", () => {
 				inputName: "input_name",
 				fieldClasses: ["applied-class", "another-class"],
 				values() {
-					return [
-						{ id: 1, name: "London" },
-						{ id: 2, name: "Paris" },
-						{ id: 3, name: "Rome" },
-						{ id: 4, name: "Berlin" }
+					return [{
+							id: 1,
+							name: "London"
+						},
+						{
+							id: 2,
+							name: "Paris"
+						},
+						{
+							id: 3,
+							name: "Rome"
+						},
+						{
+							id: 4,
+							name: "Berlin"
+						}
 					];
 				},
 				attributes: {
@@ -304,7 +380,10 @@ describe("fieldSelect.vue", () => {
 			let input;
 
 			before(() => {
-				createField2({ schema, model });
+				createField2({
+					schema,
+					model
+				});
 				input = wrapper.find("select");
 			});
 
