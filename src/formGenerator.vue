@@ -2,23 +2,7 @@
 div.vue-form-generator(v-if='schema != null')
 	fieldset(v-if="schema.fields", :is='tag')
 		template(v-for='field in fields')
-<<<<<<< HEAD
 			form-group(v-if='fieldVisible(field)', :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated")
-=======
-			.form-group(v-if='fieldVisible(field)', :class='getFieldRowClasses(field)')
-				label.col-md-2(v-if="fieldTypeHasLabel(field)", :for="getFieldID(field)")
-					| {{ field.label }}
-					span.help(v-if='field.help')
-						i.icon
-						.helpText(v-html='field.help')
-				.field-wrap.col-md-8
-					component(:is='getFieldType(field)', :disabled='fieldDisabled(field)', :model='model', :schema='field', :formOptions='options', @model-updated='modelUpdated', @validated="onFieldValidated")
-					.buttons(v-if='buttonVisibility(field)')
-						button(v-for='btn in field.buttons', @click='buttonClickHandler(btn, field, $event)', :class='btn.classes') {{ btn.label }}
-				.hint(v-if='field.hint') {{ field.hint }}
-				.errors.help-block(v-if='fieldErrors(field).length > 0')
-					span(v-for='(error, index) in fieldErrors(field)', track-by='index') {{ error }}
->>>>>>> revise form style
 
 	template(v-for='group in groups')
 		fieldset(:is='tag', :class='getFieldRowClasses(group)')
@@ -67,7 +51,7 @@ export default {
 		tag: {
 			type: String,
 			default: "fieldset",
-			validator: function(value) {
+			validator: function (value) {
 				return value.length > 0;
 			}
 		}
@@ -104,7 +88,7 @@ export default {
 
 	watch: {
 		// new model loaded
-		model: function(newModel, oldModel) {
+		model: function (newModel, oldModel) {
 			if (oldModel === newModel)
 				// model property changed, skip
 				return;
@@ -228,7 +212,6 @@ export default {
 		box-sizing: border-box;
 	}
 
-<<<<<<< HEAD
 	.form-control {
 		// Default Bootstrap .form-control style
 		display: block;
@@ -293,12 +276,6 @@ export default {
 			left: 0;
 			position: absolute;
 			width: 100%;
-=======
-			getFieldID(schema) {
-				const idPrefix = this.options && this.options.fieldIdPrefix ? this.options.fieldIdPrefix : "";
-				return slugifyFormID(schema, idPrefix);
-			}
->>>>>>> revise form style
 		}
 
 		&:hover .helpText {

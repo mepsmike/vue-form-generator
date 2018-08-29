@@ -1,6 +1,6 @@
 <template>
 	<div class="form-group" :class="getFieldRowClasses(field)">
-		<label v-if="fieldTypeHasLabel(field)" :for="getFieldID(field)" :class="field.labelClasses">
+		<label class="col-md-2" v-if="fieldTypeHasLabel(field)" :for="getFieldID(field)" :class="field.labelClasses">
 			<span v-html="field.label"></span>
 			<span v-if='field.help' class="help">
 				<i class="icon"></i>
@@ -8,14 +8,14 @@
 			</span>
 		</label>
 
-		<div class="field-wrap">
+		<div class="field-wrap col-md-8">
 			<component ref="child" :is="getFieldType(field)" :disabled="fieldDisabled(field)" :model="model" :schema="field" :formOptions="options" @model-updated="onModelUpdated" @validated="onFieldValidated"></component>
 			<div v-if="buttonVisibility(field)" class="buttons">
 				<button v-for="(btn, index) in field.buttons" @click="buttonClickHandler(btn, field, $event)" :class="btn.classes" :key="index" v-text="btn.label"></button>
 			</div>
 		</div>
 
-		<div v-if="field.hint" class="hint" v-html="fieldHint(field)"></div>
+		<div v-if="field.hint" class="hint col-md-3" v-html="fieldHint(field)"></div>
 
 		<div v-if="fieldErrors(field).length > 0" class="errors help-block">
 			<span v-for="(error, index) in fieldErrors(field)" :key="index" v-html="error"></span>
@@ -163,8 +163,6 @@ $errorColor: #f00;
 			color: $errorColor;
 			font-size: 0.8em;
 			span {
-				display: block;
-				background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVR4Xt2TMQoCQQxF3xdhu72MpZU3GU/meBFLOztPYrVWsQmEWSaMsIXgK8P8RyYkMjO2sAN+K9gTIAmDAlzoUzE7p4IFytvDCQWJKSStYB2efcAvqZFM0BcstMx5naSDYFzfLhh/4SmRM+6Agw/xIX0tKEDFufeDNRUc4XqLRz3qabVIf3BMHwl6Ktexn3nmAAAAAElFTkSuQmCC");
 				background-repeat: no-repeat;
 				padding-left: 17px;
 				padding-top: 0px;
